@@ -1,0 +1,32 @@
+{% load thumbnail %}
+
+{% for image in images %}
+  <div class="image">
+    <a href="{{ image.get_absolute_url }}">
+      {% thumbnail image.image 300x300 crop="smart" as im %}
+      <a href="{{ image.get_absolute_url }}">
+        <img src="{{ im.url }}">
+      </a>
+    </a>
+    <div class="info">
+      
+      <div>
+        <span class="count" style="margin-right: 90px">
+          <span class="total">{{ image.users_like.count }}</span>
+          like{{ image.users_like.count|pluralize }}
+        </span>
+        <a href="#" data-id="{{ image.id }}" data-action="{% if request.user in image.users_like.all %}un{% else %}{{ image.id }}-{% endif %}like" class="like button" style="color: #fff;">
+          {% if request.user not in image.users_like.all %}
+            Like
+          {% else %}
+            Unlike
+          {% endif %}
+        </a>
+      </div>
+      <br><a href="{{ image.user.get_absolute_url }}"><img src="{% thumbnail image.user.profile.photo 280x280 %}" style="width:30px; height:30px;">{{ image.user }}</a>
+      <a href="{{ image.get_absolute_url }}" class="title" style=" margin-left: 130px;">
+        {{ image.title }} 
+      </a>
+    </div>
+  </div>
+{% endfor %}
