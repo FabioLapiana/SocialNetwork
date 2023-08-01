@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block title %}Other people{% endblock %}
+
+{% block content %}
+    <h1>People</h1>
+    <div id="people-list">
+        <h2>People You Follow</h2>
+        {% for user in users_followed %}
+            <div class="user">
+                <a href="{{ user.get_absolute_url }}">
+                    <img src="{% thumbnail user.profile.photo 180x180 %}">
+                </a>
+                <div class="info">
+                    <a href="{{ user.get_absolute_url }}" class="title">
+                        {{ user.get_full_name }}
+                    </a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No people you follow yet.</p>
+        {% endfor %}
+    </div>
+    <div id="people-list">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><h2>People Following You</h2>
+        {% for user in users_followers %}
+            <div class="user">
+                <a href="{{ user.get_absolute_url }}">
+                    <img src="{% thumbnail user.profile.photo 180x180 %}">
+                </a>
+                <div class="info">
+                    <a href="{{ user.get_absolute_url }}" class="title">
+                        {{ user.get_full_name }}
+                    </a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No people following you yet.</p>
+        {% endfor %}
+    </div>
+    <div id="people-list">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><h2>Other People</h2>
+        {% for user in users_remaining %}
+            <div class="user">
+                <a href="{{ user.get_absolute_url }}">
+                    <img src="{% thumbnail user.profile.photo 180x180 %}">
+                </a>
+                <div class="info">
+                    <a href="{{ user.get_absolute_url }}" class="title">
+                        {{ user.get_full_name }}
+                    </a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No other people found.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
