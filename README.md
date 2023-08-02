@@ -31,13 +31,13 @@ Django 4.1.7
 
 Installazione e avvio:
 
-Assicurarsi di avere Python 3.x installato sul proprio sistema.
+Assicurarsi di avere Python 3.11 installato sul proprio sistema.
 Clonare questo repository sul proprio computer.
 Aprire il terminale nella directory principale del progetto.
 Installare le dipendenze eseguendo il comando pip install -r requirements.txt.
 Eseguire le migrazioni del database con il comando python manage.py migrate.
 Avviare il server di sviluppo con il comando python manage.py runserver.
-Visitare http://localhost:8000/ nel browser per accedere al social network.
+Visitare http://localhost:8000/account nel browser per accedere al social network.
 Nota finale:
 
 Questo progetto è stato sviluppato per dimostrare capacità avanzate di Django e per illustrare le funzionalità di un social network. Il codice è rilasciato con una licenza aperta ed è liberamente accessibile sul nostro repository GitHub (inserire il link al repository qui). Ci auguriamo che questo progetto possa essere una risorsa utile per chiunque sia interessato a imparare e migliorare le proprie competenze con Django e lo sviluppo di social network dinamici e interattivi.
